@@ -18,7 +18,7 @@
 
     function getLocations() {
       var request = {
-        method: 'JSONP',
+        method: 'GET',
         url: baseUrl + '/v1/getLocations' + '?key=' + key
       };
       return $http(request);
@@ -26,7 +26,7 @@
 
     function getFeeds() {
       var request = {
-        method: 'JSON',
+        method: 'GET',
         url: baseUrl + '/v1/getFeeds' + '?key=' + key
       };
       return $http(request);
@@ -34,7 +34,7 @@
 
     function getLatestFeedVersion() {
       var request = {
-        method: 'JSONP',
+        method: 'GET',
         url: baseUrl + '/v1/getLatestFeedVersion' + '?key=' + key
       };
       return $http(request);
@@ -42,7 +42,7 @@
 
     function getFeedVersions() {
       var request = {
-        method: 'JSONP',
+        method: 'GET',
         url: baseUrl + '/v1/getFeedVersions' + '?key=' + key
       };
       return $http(request);
