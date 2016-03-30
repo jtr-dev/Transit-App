@@ -1,10 +1,17 @@
+<h4>Current Train Times</h4>
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<li ng-repeat='trains in vm.trains'>
+ {{trains}} | {{trains.arrivalTime}}
+</li>
+<li ng-repeat='agencies in vm.agencies'>
+ {{agencies}}
+</li>
+
+<ul ng-repeat='f in vm.feeds'>
+  <li>
+    {{f.results | json}}
+  </li>
+</ul>
 </div>
 
 <div class="row marketing">

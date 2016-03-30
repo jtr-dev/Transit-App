@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name transitappApp
+ * @name transitApp
  * @description
- * # transitappApp
+ * # transitApp
  *
  * Main module of the application.
  */
 angular
-  .module('transitappApp', [
+  .module('transitApp', [
     'ngAnimate',
     'ngCookies',
     'ngMessages',
@@ -22,8 +22,8 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'MainController',
+        controllerAs: 'vm'
       })
       .otherwise({
         redirectTo: '/'

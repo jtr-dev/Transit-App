@@ -16,7 +16,7 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "transitappApp",
+  "moduleName": "transitApp",
   "overrides": {
     "bootstrap": {
       "main": [
