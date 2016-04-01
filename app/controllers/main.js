@@ -9,9 +9,7 @@
 
   function MainController($scope, $q, transit) {
     var vm = this;
-
-    vm.trains = ['Carlisle', 'Mtn. View', 'Desperado'];
-    vm.agencies = [];
+    vm.feeds = [];
 
     if (1 < 2) {
       getFeedsAsync();
@@ -28,8 +26,8 @@
           .then(function(res) {
             // Bind data to the view model.
 
-            vm.feeds = JSON.parse(res.data);
-            console.log(res.data);
+            vm.feeds = res.data.results.feeds;
+            console.table(res.data.results.feeds);
 
             resolve();
           }, function(err) {

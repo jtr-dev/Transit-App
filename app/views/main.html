@@ -1,30 +1,30 @@
 <h4>Current Train Times</h4>
 <div class="jumbotron">
-<li ng-repeat='trains in vm.trains'>
- {{trains}} | {{trains.arrivalTime}}
-</li>
-<li ng-repeat='agencies in vm.agencies'>
- {{agencies}}
-</li>
 
-<ul ng-repeat='f in vm.feeds'>
+<!-- <ul >
   <li>
-    {{f.results | json}}
+    {{f.id}}
+    {{f.t}}
+    {{f.l.lat}}
+    {{f.l.lng}}
+    {{f.l.t}}
+
   </li>
-</ul>
-</div>
+</ul> -->
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<table class="rwd-table">
+  <tr >
+    <th>ID</th>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Download</th>
+  </tr>
+  <tr  ng-repeat="f in vm.feeds track by $index">
+    <td data-th="ID">{{f.id}}</td>
+    <td data-th="Title">{{f.t}}</td>
+    <td data-th="Location">{{f.l.lat}} {{f.l.lng}} {{f.l.t}}</td>
+    <td data-th="Download"><a href='{{f.u.d}}'>{{f.u.d}}</a></td>
+  </tr>
+</table>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
 </div>
