@@ -24,10 +24,10 @@
       return $http(request);
     }
 
-    function getFeeds() {
+    function getFeeds(pageNum) {
       var request = {
         method: 'GET',
-        url: baseUrl + '/v1/getFeeds' + '?key=' + key
+        url: baseUrl + '/v1/getFeeds' + '?key=' + key + '&page=' + pageNum
       };
       return $http(request);
     }

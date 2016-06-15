@@ -12,6 +12,7 @@
     vm.feeds = [];
 
 
+
     getFeedsAsync();
     function getFeedsAsync() {
       return $q(function(resolve, reject) {
@@ -22,7 +23,9 @@
           .then(function(res) {
             // Bind data to the view model.
              vm.feeds = res.data.results.feeds;
-             console.table(res.data.results.feeds);
+              console.table(res.data.results.feeds);
+             console.table(res.data.results);
+             // click the feed and pass the $index to id
             vm.getSelectedFeed = function(id){
               console.log(id);
                vm.feeds = res.data.results.feeds[id];
@@ -35,7 +38,10 @@
                  }
 
                  function showContent(elt, type, content) {
-                   elt.innerHTML = "<p class='alert alert-success'> " + content + "</p>";
+                  //  elt.innerHTML = "<p class='alert alert-success'> " + content + "</p>";
+                   elt.innerHTML =  "<p>" + content + "</p>";
+                   vm.csv = content;
+
                  }
 
                  //=========================
@@ -50,7 +56,8 @@
 
                    try {
                      var zip = new JSZip(data);
-                     showContent(elt, "" + data, zip.file('transfers.txt').asText());
+
+                     showContent(elt, "" + data, zip.file('stops.txt').asText());  //var for all possible txt files
                    } catch(e) {
                      showError(elt, e);
                    }
@@ -62,9 +69,5 @@
           });
       });
     }
-
-
-
-
   }
 })();
