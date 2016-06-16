@@ -27,7 +27,7 @@ angular
       })
       .when('/gtfs', {
         templateUrl: 'views/gtfs.html',
-        controller: 'GTFSController',
+        controller: 'gtfsController',
         controllerAs: 'vm'
       })
       .otherwise({

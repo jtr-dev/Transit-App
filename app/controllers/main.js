@@ -22,14 +22,18 @@
         transit.getFeeds()
           .then(function(res) {
             // Bind data to the view model.
-             vm.feeds = res.data.results.feeds;
-              console.table(res.data.results.feeds);
-             console.table(res.data.results);
+             vm.feeds = res;
+             console.table(res);
+             vm.getCode = function(code){
+               transit.getLocations(code);
+              //  console.log(transit.getLocations(code));
+               vm.liveTable = transit.getLocations(code);
+             }
+             vm.getCode(res.data.stations[0].station_code);
              // click the feed and pass the $index to id
             vm.getSelectedFeed = function(id){
-              console.log(id);
+              // console.log(id);
                vm.feeds = res.data.results.feeds[id];
-               console.log(res.data.results.feeds[id]);
                vm.fs = res.data.results.feeds[id].u.d;
                var zf = res.data.results.feeds[id].u.d;
 

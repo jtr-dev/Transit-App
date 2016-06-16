@@ -14,23 +14,35 @@
     transit.getFeedVersions = getFeedVersions;
 
 
-    var baseUrl = 'http://api.transitfeeds.com';
+    var baseUrl = 'http://transportapi.com/v3/uk/train/stations/near.json?lat=51.527789&lon=-0.102323&page=3&rpp=10';
 
-    function getLocations() {
+    function getLocations(station_code) {
       var request = {
         method: 'GET',
-        url: baseUrl + '/v1/getLocations' + '?key=' + key
+        url: 'http://transportapi.com/v3/uk/train/station/' +station_code+ '/live?' + app_id + app_key
+
       };
       return $http(request);
     }
 
-    function getFeeds(pageNum) {
+    function getFeeds() {
       var request = {
         method: 'GET',
-        url: baseUrl + '/v1/getFeeds' + '?key=' + key + '&page=' + pageNum
+        url: baseUrl + app_id + app_key
       };
       return $http(request);
     }
+
+
+
+
+    // function getFeeds(pageNum) {
+    //   var request = {
+    //     method: 'GET',
+    //     url: baseUrl + '/v1/getFeeds' + '?key=' + key + '&page=' + pageNum
+    //   };
+    //   return $http(request);
+    // }
 
     function getLatestFeedVersion() {
       var request = {
