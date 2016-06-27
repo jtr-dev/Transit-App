@@ -29,7 +29,6 @@
               //  console.log(transit.getLocations(code));
                vm.liveTable = transit.getLocations(code);
                console.log(transit.getLocations(code));
-
              }
              vm.getCode(res.data.stations[0].station_code);
 
@@ -38,8 +37,6 @@
               // console.log(id);
                vm.feeds = res.data.results.feeds[id];
                vm.fs = res.data.results.feeds[id].u.d;
-
-
             };
             resolve();
           }, function(err) {

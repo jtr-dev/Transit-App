@@ -21,7 +21,7 @@
 
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open('airhorner').then(cache => {
+    caches.open('transport').then(cache => {
       return cache.addAll([
         '/',
         '/index.html',
