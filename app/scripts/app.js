@@ -25,11 +25,6 @@ angular
         controller: 'MainController',
         controllerAs: 'vm'
       })
-      .when('/gtfs', {
-        templateUrl: 'views/gtfs.html',
-        controller: 'GTFSController',
-        controllerAs: 'vm'
-      })
       .otherwise({
         redirectTo: '/'
       });

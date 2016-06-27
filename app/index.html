@@ -12,8 +12,9 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/table.css"
+    <!-- <link rel="stylesheet" href="/styles/vendor.css"/> -->
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="stylesheet" href="/styles/table.css"/>
     <!-- endbuild -->
   </head>
   <body ng-app="transitApp">
@@ -57,7 +58,17 @@
       </div>
     </div>
 
-
+    <script>
+         if('serviceWorker' in navigator) {
+           navigator.serviceWorker.register('/sw.js', { scope: '/' })
+             .then(function(registration) {
+                   console.log('Service Worker Registered');
+             });
+           navigator.serviceWorker.ready.then(function(registration) {
+              console.log('Service Worker Ready');
+           });
+         }
+    </script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <!-- <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -81,19 +92,17 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/jszip/dist/jszip.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/config.js"></script>
+        <!-- <script src="/scripts/vendor.js"></script> -->
+        <script src="/scripts/app.js"></script>
+        <script src="/scripts/config.js"></script>
         <script src="/controllers/main.js"></script>
-        <script src="/controllers/gtfs.js"></script>
         <script src="/services/transitFactory.js"></script>
-        <script src="scripts/zip.js"></script>
-        <script src="bower_components/jszip/dist/jszip.min.js"></script>
-
+        <script src="/scripts/page.js"></script>
+      
         <!-- endbuild -->
 </body>
 </html>

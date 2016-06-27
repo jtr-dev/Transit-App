@@ -22,46 +22,24 @@
         transit.getFeeds()
           .then(function(res) {
             // Bind data to the view model.
-             vm.feeds = res.data.results.feeds;
-              console.table(res.data.results.feeds);
-             console.table(res.data.results);
+             vm.feeds = res;
+             console.table(res);
+             vm.getCode = function(code){
+               transit.getLocations(code);
+              //  console.log(transit.getLocations(code));
+               vm.liveTable = transit.getLocations(code);
+               console.log(transit.getLocations(code));
+
+             }
+             vm.getCode(res.data.stations[0].station_code);
+
              // click the feed and pass the $index to id
             vm.getSelectedFeed = function(id){
-              console.log(id);
+              // console.log(id);
                vm.feeds = res.data.results.feeds[id];
-               console.log(res.data.results.feeds[id]);
                vm.fs = res.data.results.feeds[id].u.d;
-               var zf = res.data.results.feeds[id].u.d;
 
-                 function showError(elt, err) {
-                   elt.innerHTML = "<p class='alert alert-danger'>" + err + "</p>";
-                 }
 
-                 function showContent(elt, type, content) {
-                  //  elt.innerHTML = "<p class='alert alert-success'> " + content + "</p>";
-                   elt.innerHTML =  "<p>" + content + "</p>";
-                   vm.csv = content;
-
-                 }
-
-                 //=========================
-                 // JSZipUtils
-                 //=========================
-                 JSZipUtils.getBinaryContent(zf, function(err, data) {
-                   var elt = document.getElementById('jszip_utils');
-                   if(err) {
-                     showError(elt, err);
-                     return;
-                   }
-
-                   try {
-                     var zip = new JSZip(data);
-
-                     showContent(elt, "" + data, zip.file('stops.txt').asText());  //var for all possible txt files
-                   } catch(e) {
-                     showError(elt, e);
-                   }
-                 });
             };
             resolve();
           }, function(err) {

@@ -1,46 +1,43 @@
-<h4>Current Train Times</h4>
-<div class="jumbotron">
+<div >
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      padding: 5px;
+      text-align: left;
+    }
+    .tube-menu{
+      display: none;
+    }
+  </style>
+  <div class=" col-md-12">
+    <div class="col-md-3">
 
-<!-- <ul >
-  <li>
-    {{f.id}}
-    {{f.t}}
-    {{f.l.lat}}
-    {{f.l.lng}}
-    {{f.l.t}}
+    <table>
+      <tr>
+        <th>Station</th>
 
-  </li>
-</ul> -->
+      </tr>
+      <tr ng-repeat='f in vm.feeds.data.stations'>
 
-
-
-<table class="rwd-table" ng-hide='showme'>
-  <tr >
-    <!-- <th>ID</th> -->
-    <th>Title</th>
-    <th>Location</th>
-    <!-- <th>Download</th> -->
-  </tr>
-  <tr  ng-repeat="f in vm.feeds track by $index" >
-    <!-- <td data-th="ID" ng-click="vm.getSelectedFeed(index)">{{$index}}</td> -->
-    <td data-th="Title" ng-click="vm.getSelectedFeed($index) "><a href="">{{f.t}}</a></td>
-    <td data-th="Location">{{f.l.t}}</td>
-    <!-- <td data-th="Download"><a href='{{f.u.d}}'>{{f.u.d}}</a></td> -->
-  </tr>
-
-</table>
-
-<div class='container'>
-  {{vm.fs}}
-  <div ng-bind-html='vm.csv'>
+        <th ng-click="vm.getCode(f.station_code)">
+          <a href="">{{f.name}}</a>
+        </th>
+      </tr>
+    </table>
 
   </div>
-</div>
-<div id='jszip_utils'>
+    <div class="col-md-8" id="liveTable">
 
-</div>
+      <div ng-bind-html="vm.liveTable.$$state.value.data" ng-class="liveTable"  >
 
-
-
+      </div>
+    </div>
+  </div>
 
 </div>
