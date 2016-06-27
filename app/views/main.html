@@ -11,12 +11,14 @@
       padding: 5px;
       text-align: left;
     }
-
+    .tube-menu{
+      display: none;
+    }
   </style>
   <div class=" col-md-12">
     <div class="col-md-3">
 
-    <table >
+    <table>
       <tr>
         <th>Station</th>
 
@@ -30,13 +32,12 @@
     </table>
 
   </div>
-    <div class="col-md-8">
+    <div class="col-md-8" id="liveTable">
 
-      <div ng-bind-html="vm.liveTable.$$state.value.data"></div>
+      <div ng-bind-html="vm.liveTable.$$state.value.data" ng-class="liveTable"  >
+
+      </div>
     </div>
   </div>
 
 </div>
-<!-- <div ng-repeat="f in vm.feeds">
-  {{f.data.stations}}
-</div> -->
