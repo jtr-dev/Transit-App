@@ -15,17 +15,31 @@
       display: none;
     }
   </style>
+  <script>
+    $(document).ready(function () {
+      $("#departures").click();
+      console.log("Ready");
+    })
+  </script>
   <div class=" col-md-12">
-    <div class="col-md-3">
+    <div class="col-md-4">
 
-    <table>
+      <table ng-show="depTbl">
+        <tr>
+          <th>Departures</th
+        </tr>
+        <tr ng-repeat='f in vm.feeds.data.stations'>
+          <th ng-click="vm.getCode(f.station_code)">
+            <a href="">{{f.name}}</a>
+          </th>
+        </tr>
+      </table>
+    <table ng-show="arriveTbl">
       <tr>
-        <th>Station</th>
-
+        <th>Arrivals</th>
       </tr>
       <tr ng-repeat='f in vm.feeds.data.stations'>
-
-        <th ng-click="vm.getCode(f.station_code)">
+        <th ng-click="vm.arrivals(f.station_code)">
           <a href="">{{f.name}}</a>
         </th>
       </tr>

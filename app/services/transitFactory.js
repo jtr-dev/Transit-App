@@ -10,6 +10,7 @@
 
     transit.getLocations = getLocations;
     transit.getFeeds = getFeeds;
+    transit.getArrivals = getArrivals;
 
 
     var baseUrl = 'http://transportapi.com/v3/uk/train/stations/';
@@ -18,6 +19,15 @@
       var request = {
         method: 'GET',
         url: 'http://transportapi.com/v3/uk/train/station/' +station_code+ '/live?' + app_id + app_key
+
+      };
+      return $http(request);
+    }
+
+    function getArrivals(station_code) {
+      var request = {
+        method: 'GET',
+        url: 'http://transportapi.com/v3/uk/train/station/' +station_code+ '/live_arrivals?' + app_id + app_key
 
       };
       return $http(request);

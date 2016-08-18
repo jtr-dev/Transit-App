@@ -41,7 +41,9 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
+              <!-- <li class="active"><a href="#/">Home</a></li> -->
+                <li class="active" ><a href="#/" id="departures" ng-click='depTbl = true; arriveTbl = false'>Departures</a></li>
+                  <li class="active"><a href="#/" id="arrivals"  ng-click='arriveTbl = true; depTbl = false' >Arrivals</a></li>
             </ul>
           </div>
         </div>
@@ -57,7 +59,7 @@
         <p><span class="glyphicon glyphicon-heart"></span> </p>
       </div>
     </div>
-
+<!-- 
     <script>
          if('serviceWorker' in navigator) {
            navigator.serviceWorker.register('/sw.js', { scope: '/' })
@@ -68,7 +70,7 @@
               console.log('Service Worker Ready');
            });
          }
-    </script>
+    </script> -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <!-- <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -92,6 +94,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/lovefield/dist/lovefield.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -101,6 +104,8 @@
         <script src="/scripts/config.js"></script>
         <script src="/controllers/main.js"></script>
         <script src="/services/transitFactory.js"></script>
+        <script src="/scripts/db.js"></script>
+
 
 
         <!-- endbuild -->
